@@ -1,0 +1,111 @@
+body{
+    direction:rtl ;
+    text-align: right;
+}
+#wraper{
+    margin:auto;
+    width:80%;
+}
+#header{
+    text-align:center;
+    display:inline;
+}
+
+.room{
+    float:right;
+    background-color:green;
+    width:300px;
+    height:200px;
+    margin:5px;
+    position: relative;
+   
+    padding-bottom: 40px;
+}
+
+.room-title{
+    color:white;
+    font-size: 20px;
+    padding: 5px; 
+    background-color:blue;
+    padding-right: 20px;
+}
+.room-content{
+    overflow-y: auto;
+    height:120px;
+}
+
+.item-name{  
+    border:1px solid black;
+    color:white;
+    padding: 2px;
+    height:35px;
+    width:40%;
+    float: right;
+    position: relative;
+}
+
+.item-delete-btn{
+    position: absolute;
+    left: 0%;
+    bottom:10%;
+    background-color:gray;
+}
+
+.item-w{
+    border:1px solid black;
+    color:white;
+    padding: 2px;
+    height:35px;
+    float: right;
+}
+
+.item-line{
+    border:1px solid black;
+    color:white;
+    padding: 2px;
+    height:35px;
+    float: right;
+}
+
+.item-toggle{
+    border:1px solid black;
+    color:rgb(87, 72, 72);
+    padding: 2px;
+    height:35px;
+    float: left;
+}
+
+.room-footer{
+    clear: both;
+    display:inline;
+    position: absolute;
+    bottom: 0%;
+    background-color: blue;
+    
+}
+
+
+ #states-list{
+     clear: both;
+ }
+
+ .new-item-btn{
+     float: left;
+ }
+ .item-input{
+     float: left;
+     width:30%;
+ }
+ 
+ .active{
+     background-color: red;
+ }
+
+ .not-active{
+     background-color:transparent;
+ }
+
+ li{
+     border:solid 1px black;
+ }
+ 

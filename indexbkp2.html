@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="styles/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="angular/directives/myClock.js"></script>
+    <script src="javascript/home_db.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <title>HousKeeper</title>
+</head>
+<body ng-app="eCalc">
+    <div id="wraper">
+      <div id="header">
+          <p><H1>מחשבון צריכת חשמל</H1></p>
+      </div>
+      <div id="home" ng-controller='roomsCtrl'> 
+            <div id="consumption-info">
+                   סהכ צריכה מכשירים פעילים {{totalWatt}}W
+              </div>
+        <div class="room" ng-repeat="room in allRooms">
+            <div class="room-title">{{room.name}}</div> 
+            <div class="room-content"> 
+                <ng-form name="itemsF">
+                <table>  
+                <tr ng-repeat="item in room.items">
+                    <td class="item-name">X{{item.name}}</td>
+                    <td class="item-w">{{item.w}}W</td>>
+                   <td class="item-line {{lineClass(item)}}">{{item.line}} </td> 
+                   <td class="item-toggle"><input type="checkbox" ng-model="item.active" ng-change="updateW()" ng/></td>
+                </tr>
+                </table>
+                </ng-form>
+            </div>    
+            <div class="room-footer">
+                <ng-form name="itemFieldForm">
+                    <input type="button" class="new-item-btn" value="+" ng-click="addItem(room,addMe_name,addMe_w,addMe_line)"/>
+                    <input type="text" value="" class="item-input" ng-model="addMe_name"/>
+                    <input type="text" value="" class="item-input" ng-model="addMe_w"/>
+                    <input type="text" value="" class="item-input" ng-model="addMe_line"/>
+            </ng-form>
+                </div>
+            
+        </div>
+       <div> 
+        <div id="right-pannel">
+            <input type="button" onclick="saveData()" value="SaveData"/>
+            <input type="button" ng-click="loadData()" value="load data"/>
+            <div id="all-lines" ng-controller='roomsCtrl'>
+                    <div>קווי חשמל</div>
+                <ul>
+                     <li ng-repeat="line in allLines" ng-click="showLine(line)">
+                         {{line.name}}:{{line.MaxAmp}}amp{{sumActiveWattOnLine(line)}}
+                     </li>
+                     <!-- <li ng-click="showLine("none")">none</li> -->
+                </ul>
+            </div>
+        </div>
+        <div id="all-states" ng-controller='roomsCtrl'>
+            <div>מצבים שמורים</div>
+            <ul>
+                 <li ng-repeat="x in allStates">
+                     מצב{{x.id}}
+                 </li>
+            </ul>
+        </div>
+    </div>
+    <script src="angular/controlers/TimeCtrl.js"></script>
+    <script src="angular/controlers/roomsCtrl.js"></script>
+</body>
+</html>
