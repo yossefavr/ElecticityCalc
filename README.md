@@ -1,6 +1,6 @@
 # ElecticityCalc
 
-Electric calc let you calculate electricity consumption at your condo, appartment, hous. facrory, toune or ant other compartment.
+Electric calc let you calculate electricity consumption at your condo, appartment, hous. facrory, town or ant other compartment.
 
 it has been developed as a angular-js final cours asignment. 
 
